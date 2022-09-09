@@ -2,7 +2,9 @@
 
 Getting Started
 
-First, run the development server:
+First, Clone the repo to your local and do npm install.
+
+Second, run the development server:
 
 ```bash
 npm run dev
