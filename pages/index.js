@@ -13,6 +13,7 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ cate }) {
+  console.log(cate);
   return (
     <>
       <HomeContainer categoryList={cate} />
