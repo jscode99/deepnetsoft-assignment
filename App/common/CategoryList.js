@@ -1,12 +1,12 @@
+import { useRouter } from "next/router";
 import { Paper, Typography } from "@mui/material";
 import Link from "next/link";
 
-const CategoryList = () => {
-  const data = [
-    { title: "Mobiles, Computers", count: "200" },
-    { title: "TV, Applications, Electronics", count: "30" },
-    { title: "Mens Fashion", count: "30" },
-  ];
+import AppContext from "../services/AppContext";
+
+const CategoryList = ({ categoryList }) => {
+  const router = useRouter();
+  const { slug } = router.query;
   return (
     <Paper
       elevation={3}
@@ -20,20 +20,25 @@ const CategoryList = () => {
         border: "1px solid #c9c9c9",
       }}
     >
-      {data.map((data, index) => (
-        <Link key={index} href={`/`}>
-          <Typography
-            variant={`body2`}
-            sx={{
-              cursor: "pointer",
-              fontWeight: "500",
-              marginBottom: "20px",
-            }}
+      {categoryList &&
+        categoryList.length > 0 &&
+        categoryList.map((data, index) => (
+          <Link
+            key={index}
+            href={slug ? `subcategory/${data.slug}` : `/${data.slug}`}
           >
-            {data.title} {data.count}
-          </Typography>
-        </Link>
-      ))}
+            <Typography
+              variant={`body2`}
+              sx={{
+                cursor: "pointer",
+                fontWeight: "500",
+                marginBottom: "20px",
+              }}
+            >
+              {data.title} ({data.count})
+            </Typography>
+          </Link>
+        ))}
     </Paper>
   );
 };

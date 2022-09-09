@@ -1,10 +1,10 @@
 import Layout from "./Layout";
-import { Landing } from "../components";
+import { Categories } from "../components";
 
 const HomeContainer = ({ categoryList }) => {
   return (
     <Layout PageName={`DeepNetSoft - Categories`}>
-      <Landing categoryList={categoryList} />
+      <Categories categoryList={categoryList} />
     </Layout>
   );
 };

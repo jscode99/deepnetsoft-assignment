@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    BASE_URL: "http://localhost:3000",
+    API_ENDPOINT: "https://test-server-nextjs.vercel.app/api/",
   },
   reactStrictMode: true,
   swcMinify: true,

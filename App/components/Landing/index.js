@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 //Components
 import { CategoryList, ProductTable } from "../../common";
 
-const Categories = ({ categoryList }) => {
+const Landing = ({ categoryList }) => {
   return (
     <Box
       display={`flex`}
@@ -21,4 +21,4 @@ const Categories = ({ categoryList }) => {
   );
 };
 
-export default Categories;
+export default Landing;
