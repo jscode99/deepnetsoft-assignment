@@ -1,7 +1,7 @@
 //Container
 import { HomeContainer } from "../App/container";
 //Services
-import { FetchCall } from "../app/lib/FetchApi";
+import { FetchCall } from "../app/lib/FetchService";
 
 export async function getServerSideProps(context) {
   const cate = await FetchCall();

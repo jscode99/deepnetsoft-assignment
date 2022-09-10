@@ -1,4 +1,4 @@
-import { BASE_URL } from "../lib/Constant";
+import { BASE_URL } from "./Constant";
 
 export const FetchCall = async slug => {
   const apiURL = BASE_URL + `?cate=${slug}`;
