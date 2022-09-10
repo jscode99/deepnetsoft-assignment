@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { Paper, Typography } from "@mui/material";
 import Link from "next/link";
 
-import AppContext from "../services/AppContext";
+import AppContext from "../lib/AppContext";
 
 const CategoryList = ({ categoryList }) => {
   console.log(categoryList);

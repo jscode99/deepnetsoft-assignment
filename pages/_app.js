@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AppContext from "../App/services/AppContext";
+import AppContext from "../App/lib/AppContext";
 
 import "../styles/globals.css";
 

@@ -1,12 +1,10 @@
-// import { useEffect, useContext } from "react";
 //Container
 import { HomeContainer } from "../App/container";
 //Services
-// import AppContext from "../App/services/AppContext";
+import { FetchCall } from "../app/lib/FetchApi";
 
-export async function getStaticProps(context) {
-  const res = await fetch(process.env.API_ENDPOINT);
-  const cate = await res.json();
+export async function getServerSideProps(context) {
+  const cate = await FetchCall();
   return {
     props: { cate }, // will be passed to the page component as props
   };

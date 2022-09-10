@@ -4,7 +4,7 @@ import { Box, Paper, Typography } from "@mui/material";
 
 //Components
 import { CategoryList, ProductTable } from "../../common";
-import AppContext from "../../services/AppContext";
+import AppContext from "../../lib/AppContext";
 
 const Categories = ({ categoryList }) => {
   const { appContext, setAppContext } = useContext(AppContext);
