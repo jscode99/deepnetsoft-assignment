@@ -3,7 +3,7 @@ import { Categories } from "../components";
 
 const HomeContainer = ({ categoryList }) => {
   return (
-    <Layout PageName={`DeepNetSoft - Categories`}>
+    <Layout>
       <Categories categoryList={categoryList} />
     </Layout>
   );

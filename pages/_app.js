@@ -4,7 +4,7 @@ import AppContext from "../App/lib/AppContext";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  const [appContext, setAppContext] = useState('Categories');
+  const [appContext, setAppContext] = useState({});
   return (
     <AppContext.Provider value={{ appContext, setAppContext }}>
       <Component {...pageProps} />

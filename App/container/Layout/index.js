@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import Head from "next/head";
-import React from "react";
+
+import AppContext from "../../lib/AppContext";
 
 const Layout = ({ children, PageName }) => {
+  const { appContext } = useContext(AppContext);
   return (
     <>
       <Head>
-        <title>{PageName}</title>
+        <title>{`DeepNetSoft - ${
+          appContext.title ? appContext.title : "Categories"
+        }`}</title>
       </Head>
       {children}
     </>

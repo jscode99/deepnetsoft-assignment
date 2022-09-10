@@ -1,13 +1,27 @@
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import { Box, Paper, Typography } from "@mui/material";
 
 //Components
 import { CategoryList, ProductTable } from "../../common";
 import AppContext from "../../lib/AppContext";
+import { CategoryName } from "../../lib/Utilis";
 
 const Categories = ({ categoryList }) => {
   const { appContext, setAppContext } = useContext(AppContext);
+  const [totalProduct, setTotalProduct] = useState(0);
+  // console.log(appContext);
+  useEffect(() => {
+    categoryList && categoryList.length > 0
+      ? setTotalProduct(() =>
+          categoryList.reduce((acc, cur) => acc + Number(cur.count), 0),
+        )
+      : setTotalProduct(
+          () =>
+            appContext?.productList.length > 0 && appContext.productList.length,
+        );
+  }, [categoryList, appContext]);
+
   return (
     <Box
       display={`flex`}
@@ -17,7 +31,7 @@ const Categories = ({ categoryList }) => {
       alignItems={`center`}
     >
       <Typography variant={`h6`} mb={2}>
-        {appContext} {`(200)`}
+        {appContext?.title} ({totalProduct})
       </Typography>
       {categoryList && categoryList.length > 0 && (
         <Paper
@@ -41,7 +55,12 @@ const Categories = ({ categoryList }) => {
                   fontWeight: "500",
                   marginBottom: "20px",
                 }}
-                onClick={() => setAppContext(data.title)}
+                onClick={() =>
+                  setAppContext({
+                    ...appContext,
+                    title: CategoryName(data.slug),
+                  })
+                }
               >
                 {data.title} ({data.count})
               </Typography>
@@ -49,7 +68,8 @@ const Categories = ({ categoryList }) => {
           ))}
         </Paper>
       )}
-      <ProductTable />
+
+      {appContext?.productList && <ProductTable row={appContext.productList} />}
     </Box>
   );
 };
